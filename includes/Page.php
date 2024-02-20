@@ -1,6 +1,4 @@
-<?php
-include(__DIR__ . '/../partials/hotel_table.php');
-?>
+<?php require_once(__DIR__ . '/../partials/hotel_table.php'); ?>
 
 <div class="table-responsive">
     <table class="table table-dark table-striped">
