@@ -1,4 +1,20 @@
-<?php require_once(__DIR__ . '/../partials/hotel_table.php'); ?>
+<?php require_once(__DIR__ . '/../partials/hotel_table.php');
+
+$data = $_GET;
+$parkingFilter = $data['parking'] ?? null;
+$filteredHotels = '';
+
+if ($parkingFilter === '') {
+    $filteredHotels = $hotels;
+} elseif ($parkingFilter === 'all') {
+    $filteredHotels = $hotels;
+} else {
+    $filteredHotels = array_filter($hotels, function ($hotel) use ($parkingFilter) {
+        return ($parkingFilter === 'true' && $hotel['parking']) || ($parkingFilter === 'false' && !$hotel['parking']);
+    });
+}
+
+?>
 
 <div class="table-responsive">
     <table class="table table-dark table-striped">
@@ -12,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($hotels as $hotel): ?>
+            <?php foreach ($filteredHotels as $hotel): ?>
                 <tr>
                     <td>
                         <?= $hotel['name']; ?>

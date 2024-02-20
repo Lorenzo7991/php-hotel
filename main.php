@@ -18,7 +18,21 @@
 
 <body class="bg-dark text-white">
     <div class="container py-5">
-        <h1>Hotels</h1>
+        <header class="d-flex justify-content-between align-items-center">
+            <h1>Hotels</h1>
+            <form action="" method="GET" class="d-flex align-items-center">
+                <div class="mb-3">
+                    <label for="parking" class="form-label">Parking</label>
+                    <select name="parking" id="parking" class="form-select">
+                        <option value="">Select a choice</option>
+                        <option value="all">Show all</option>
+                        <option value="true">Parking</option>
+                        <option value="false">NO - Parking</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary ms-3" style="margin-bottom: -15px">Filtra</button>
+            </form>
+        </header>
         <?php include('includes/Page.php') ?>
     </div>
 </body>
