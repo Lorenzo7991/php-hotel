@@ -16,6 +16,7 @@
         crossorigin='anonymous' />
 </head>
 
+
 <!-- Body dark mode -->
 
 <body class="bg-dark text-white">
@@ -30,7 +31,6 @@
                 <div class="mb-3">
                     <label for="parking" class="form-label">Parking</label>
                     <select name="parking" id="parking" class="form-select">
-                        <!-- <option value="">Select a choice</option> -->
                         <option value="">Show all</option>
                         <option value="true">Parking</option>
                         <option value="false">NO - Parking</option>
