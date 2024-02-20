@@ -1,10 +1,6 @@
 <?php
-
-//Code here...
-
+include('partials/hotel_table.php');
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +20,34 @@
         crossorigin='anonymous' />
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark text-white">
+
+    <div class="container">
+        <h1>Hotels</h1>
+        <ul>
+            <?php foreach ($hotels as $hotel): ?>
+                <li>
+                    <h5 class="mb-1">
+                        <?= $hotel['name']; ?>
+                    </h5>
+                    <p class="mb-1">
+                        <?= $hotel['description']; ?>
+                    </p>
+                    <small><strong>
+                            <?= $hotel['parking'] ? 'Parcheggio' : 'No parcheggio'; ?>
+                        </strong></small>
+                    <br>
+                    <small><strong>Voto:</strong>
+                        <?= $hotel['vote']; ?>
+                    </small>
+                    <br>
+                    <small><strong>Distance from the center:</strong>
+                        <?= $hotel['distance_to_center']; ?> km
+                    </small>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 
 </body>
 
