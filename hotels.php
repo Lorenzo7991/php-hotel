@@ -22,7 +22,7 @@ include('partials/hotel_table.php');
 
 <body class="bg-dark text-white">
 
-    <div class="container">
+    <div class="container py-5">
         <h1>Hotels</h1>
         <div class="table-responsive">
             <table class="table table-dark table-striped">
@@ -45,7 +45,7 @@ include('partials/hotel_table.php');
                                 <?= $hotel['description']; ?>
                             </td>
                             <td>
-                                <?= $hotel['parking'] ? 'Yes' : 'No'; ?>
+                                <?= $hotel['parking'] ? '<i class="fa-solid fa-square-check text-success "></i>' : '<i class="fa-solid fa-square-check text-danger"></i>'; ?>
                             </td>
                             <td>
                                 <?= $hotel['vote']; ?>
