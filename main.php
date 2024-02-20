@@ -33,9 +33,10 @@
                 <button type="submit" class="btn btn-primary ms-3" style="margin-bottom: -15px">Filtra</button>
             </form>
         </header>
-        <?php include('includes/Page.php') ?>
+        <main>
+            <?php include('includes/Page.php') ?>
+        </main>
     </div>
 </body>
-
 
 </html>
