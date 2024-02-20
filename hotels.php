@@ -24,31 +24,43 @@ include('partials/hotel_table.php');
 
     <div class="container">
         <h1>Hotels</h1>
-        <ul>
-            <?php foreach ($hotels as $hotel): ?>
-                <li>
-                    <h5 class="mb-1">
-                        <?= $hotel['name']; ?>
-                    </h5>
-                    <p class="mb-1">
-                        <?= $hotel['description']; ?>
-                    </p>
-                    <small><strong>
-                            <?= $hotel['parking'] ? 'Parcheggio' : 'No parcheggio'; ?>
-                        </strong></small>
-                    <br>
-                    <small><strong>Voto:</strong>
-                        <?= $hotel['vote']; ?>
-                    </small>
-                    <br>
-                    <small><strong>Distance from the center:</strong>
-                        <?= $hotel['distance_to_center']; ?> km
-                    </small>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Parking</th>
+                        <th>Vote</th>
+                        <th>Distance from the center</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($hotels as $hotel): ?>
+                        <tr>
+                            <td>
+                                <?= $hotel['name']; ?>
+                            </td>
+                            <td>
+                                <?= $hotel['description']; ?>
+                            </td>
+                            <td>
+                                <?= $hotel['parking'] ? 'Yes' : 'No'; ?>
+                            </td>
+                            <td>
+                                <?= $hotel['vote']; ?>
+                            </td>
+                            <td>
+                                <?= $hotel['distance_to_center']; ?> km
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </body>
+
 
 </html>
