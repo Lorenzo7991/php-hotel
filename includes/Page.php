@@ -33,7 +33,7 @@ if ($parkingFilter === '') {
             <!-- Loop to iterate over filtered hotels -->
             <?php foreach ($filteredHotels as $hotel): ?>
                 <tr>
-                    <th>
+                    <th scope="col">
                         <?= $hotel['name']; ?>
                     </th>
                     <td>
@@ -44,7 +44,7 @@ if ($parkingFilter === '') {
                         <?= $hotel['parking'] ? '<i class="fa-solid fa-square-check text-success "></i>' : '<i class="fa-solid fa-square-xmark text-danger"></i>'; ?>
                     </td>
                     <td>
-                        <?= $hotel['vote']; ?>
+                        <?= $hotel['vote']; ?>/5
                     </td>
                     <td>
                         <?= $hotel['distance_to_center']; ?> km

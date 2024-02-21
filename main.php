@@ -37,7 +37,7 @@
                     </select>
                 </div>
                 <!-- Form btn submit -->
-                <button type="submit" class="btn btn-primary ms-3" style="margin-bottom: -15px">Filtra</button>
+                <button type="submit" class="btn btn-primary ms-3" style="margin-bottom: -15px">Filter</button>
             </form>
         </header>
         <!-- Main section -->
