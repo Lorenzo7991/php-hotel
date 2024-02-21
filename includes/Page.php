@@ -1,22 +1,32 @@
 <!-- Import via DIR directive Hotels data for partial path -->
 <?php require_once(__DIR__ . '/../partials/hotel_table.php');
 
-/*  Global variable renamed */
+// Global variable renamed
 $data = $_GET;
-/* Check using coalescing operator */
+
+// Check using coalescing operator
 $parkingFilter = $data['parking'] ?? null;
-/* Flag variable */
+
+// Initialize the variable to hold filtered hotels
 $filteredHotels = [];
 
-/* Loop to filter hotels based on parking key. */
+// Loop to filter hotels based on parking key
 if ($parkingFilter === '') {
-    $filteredHotels = $hotels;  //If parkingFilter value is equal to empty string, show all hotels
+    // If parkingFilter value is equal to empty string, show all hotels
+    $filteredHotels = $hotels;
 } else {
-    $filteredHotels = array_filter($hotels, function ($hotel) use ($parkingFilter) {  // Else, use array_filter function to filter elements of $hotels array, using a callback function.
+    // Use array_filter function to filter elements of $hotels array, using a callback function
+    $filteredHotels = array_filter($hotels, function ($hotel) use ($parkingFilter) {
+        // Convert parking values to boolean for comparison
+        $parkingValue = ($parkingFilter === 'true');
+        // Return true if parkingFilter is empty or matches hotel parking value, false otherwise
+        return $hotel['parking'] == $parkingValue;
     });
 }
 
 ?>
+
+
 <!-- Structure of table, exported on main.php -->
 <div class="table-responsive">
     <table class="table table-dark table-striped">
@@ -33,7 +43,7 @@ if ($parkingFilter === '') {
             <!-- Loop to iterate over filtered hotels -->
             <?php foreach ($filteredHotels as $hotel): ?>
                 <tr>
-                    <th scope="col">
+                    <th>
                         <?= $hotel['name']; ?>
                     </th>
                     <td>
@@ -44,7 +54,7 @@ if ($parkingFilter === '') {
                         <?= $hotel['parking'] ? '<i class="fa-solid fa-square-check text-success "></i>' : '<i class="fa-solid fa-square-xmark text-danger"></i>'; ?>
                     </td>
                     <td>
-                        <?= $hotel['vote']; ?>/5
+                        <?= $hotel['vote']; ?> /5
                     </td>
                     <td>
                         <?= $hotel['distance_to_center']; ?> km
