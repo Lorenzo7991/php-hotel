@@ -33,15 +33,15 @@ if ($parkingFilter === '') {
             <!-- Loop to iterate over filtered hotels -->
             <?php foreach ($filteredHotels as $hotel): ?>
                 <tr>
-                    <td>
+                    <th>
                         <?= $hotel['name']; ?>
-                    </td>
+                    </th>
                     <td>
                         <?= $hotel['description']; ?>
                     </td>
                     <td>
                         <!-- Ternary operator to set correct icon based on the value of "parking" key: -->
-                        <?= $hotel['parking'] ? '<i class="fa-solid fa-square-check text-success "></i>' : '<i class="fa-solid fa-square-check text-danger"></i>'; ?>
+                        <?= $hotel['parking'] ? '<i class="fa-solid fa-square-check text-success "></i>' : '<i class="fa-solid fa-square-xmark text-danger"></i>'; ?>
                     </td>
                     <td>
                         <?= $hotel['vote']; ?>
