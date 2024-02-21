@@ -6,7 +6,7 @@ $data = $_GET;
 /* Check using coalescing operator */
 $parkingFilter = $data['parking'] ?? null;
 /* Flag variable */
-$filteredHotels = '';
+$filteredHotels = [];
 
 /* Loop to filter hotels based on parking key. */
 if ($parkingFilter === '') {
