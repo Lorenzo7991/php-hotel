@@ -11,18 +11,12 @@ $parkingFilter = $data['parking'] ?? null;
 $filteredHotels = [];
 
 // Loop to filter hotels based on parking key
-if ($parkingFilter === '') {
-    // If parkingFilter value is equal to empty string, show all hotels
-    $filteredHotels = $hotels;
-} else {
-    // Use array_filter function to filter elements of $hotels array, using a callback function
-    $filteredHotels = array_filter($hotels, function ($hotel) use ($parkingFilter) {
-        // Convert parking values to boolean for comparison
-        $parkingValue = ($parkingFilter === 'true');
-        // Return true if parkingFilter is empty or matches hotel parking value, false otherwise
-        return $hotel['parking'] == $parkingValue;
-    });
-}
+$filteredHotels = ($parkingFilter === '') ? $hotels : array_filter($hotels, function ($hotel) use ($parkingFilter) {
+    // Convert parking values to boolean for comparison
+    $parkingValue = ($parkingFilter === 'true');
+    // Return true if parkingFilter is empty or matches hotel parking value, false otherwise
+    return $hotel['parking'] == $parkingValue;
+});
 
 ?>
 
